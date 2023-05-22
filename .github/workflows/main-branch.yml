@@ -1,0 +1,36 @@
+name: Build, Test and Deploy
+
+on:
+    push:
+        branches:
+            - master
+    pull_request:
+        branches:
+            - master
+
+env:
+    PROJECT_ID: cd-demo-live-mr #TODO: update Google Cloud project
+    SERVICE: tasks-api #TODO: update Cloud Run service name
+    REGION: australia-southeast2 #TODO: update Cloud Run service region
+
+jobs:
+    build_test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v2
+              with:
+                node-version: 18
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Build
+              run: npm run build
+            
+            - name: Run Tests
+              run: npm run test
