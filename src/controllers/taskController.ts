@@ -16,7 +16,7 @@ export const createOneTask = (req: Request, res: Response) => {
 }
 
 export const getOneTask = (req: Request, res: Response) => {
-  const taskId = parseInt(req.params.id)
+  const taskId = parseInt(req.body.id)
 
   try {
     const matchedTask = taskService.getOneTask(taskId)
@@ -27,7 +27,7 @@ export const getOneTask = (req: Request, res: Response) => {
 }
 
 export const deleteTask = (req: Request, res: Response) => {
-  const taskId = parseInt(req.params.id)
+  const taskId = parseInt(req.body.id)
 
   try {
     const hasDeleted = taskService.deleteTask(taskId)
@@ -42,7 +42,7 @@ export const deleteTask = (req: Request, res: Response) => {
 }
 
 export const updateTask = (req: Request, res: Response) => {
-  const taskId = parseInt(req.params.id)
+  const taskId = parseInt(req.body.id)
 
   const name = req.body.name
   const description = req.body.description
@@ -60,7 +60,7 @@ export const updateTask = (req: Request, res: Response) => {
 }
 
 export const updateTaskPartial = (req: Request, res: Response) => {
-  const taskId = parseInt(req.params.id)
+  const taskId = parseInt(req.body.id)
 
   const name = req.body.name
   const description = req.body.description
