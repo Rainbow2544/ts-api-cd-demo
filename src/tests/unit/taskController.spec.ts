@@ -33,15 +33,15 @@ describe('getOneTasks', () =>{
               name: 'Mission 01',
               description: 'Chatbot',
               isCompleted: false,
-        }
+        };
 
-        req.body.id = '1' 
+        req.body.id = '1' ;
 
         //Act
-        getOneTask(req, res)
+        getOneTask(req, res);
         
         //Assert
-        expect(res.statusCode).toBe(200)
-        expect(res.json()._getData()).toEqual(expected)
+        expect(res.statusCode).toBe(200);
+        expect(res.json()._getData()).toEqual(expected);
     })
 })
